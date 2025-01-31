@@ -1,0 +1,22 @@
+services:
+  fastapi-service:
+    build: .
+    container_name: fastapi-baseline
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+      - OPENAI_API_KEY=${OPENAI_API_KEY}  # Использование переменной окружения для API ключа OpenAI
+      - GEMINI_API_KEY=${GEMINI_API_KEY}  # Использование переменной окружения для API ключа Gemini
+    volumes:
+      - ./logs:/app/logs
+    # Если нужно GPU
+    # runtime: nvidia
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]

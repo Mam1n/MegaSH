@@ -1,0 +1,11 @@
+fastapi
+aiologger[aiofiles]
+pip-chill
+uvicorn
+gunicorn
+openai==0.28
+beautifulsoup4
+httpx
+python-dotenv
+requests
+google-api-python-client
